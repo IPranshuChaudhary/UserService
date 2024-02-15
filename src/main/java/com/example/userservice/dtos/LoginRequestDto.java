@@ -5,6 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ExceptionDto {
-    private String errorDto;
+public class LoginRequestDto {
+    private String email;
+    private String password;
 }

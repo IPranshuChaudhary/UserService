@@ -1,8 +1,10 @@
 package com.example.userservice.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.catalina.Loader;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -13,21 +15,11 @@ import java.util.List;
 @Entity
 public class User extends BaseModel{
 
+    private String name;
     private String email;
-    private String username;
-    private String password;
+    private String hashedPassword;
 
-    @Cascade(CascadeType.PERSIST)
-    @ManyToOne
-    private Name name;
-
-    @Cascade(CascadeType.PERSIST)
-    @OneToMany()
-    private List<Address> address;
-    private String phone;
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Roles> roles;
     private boolean isEmailVerified;
-
 }
