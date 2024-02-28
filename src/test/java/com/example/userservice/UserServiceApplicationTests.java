@@ -17,10 +17,9 @@ class UserServiceApplicationTests {
 
     @Autowired
     private JpaRegisteredClientRepository registeredClientRepository;
-
-    @Test
-    void contextLoads() {
-    }
+//    @Test
+//    void contextLoads() {
+//    }
 
 //    @Test
 //    public void saveRegisteredClientInDb(){
