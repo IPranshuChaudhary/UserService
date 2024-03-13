@@ -9,6 +9,7 @@ import com.example.userservice.exceptions.InvalidUserException;
 import com.example.userservice.models.Token;
 import com.example.userservice.models.User;
 import com.example.userservice.services.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public User signUp(@RequestBody SignUpRequestDto request){
+    public User signUp(@RequestBody SignUpRequestDto request) throws JsonProcessingException {
         return userService.signUp(request.getName(), request.getEmail(), request.getPassword());
     }
 
